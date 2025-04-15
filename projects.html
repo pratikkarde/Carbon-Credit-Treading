@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Projects - EcoTrade</title>
+    <meta name="description" content="Browse and invest in verified carbon reduction projects worldwide">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/projects.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="assets/images/logo.svg" alt="EcoTrade Logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/trading">Trading</a>
+                <a href="/projects" class="active">Projects</a>
+                <a href="/about">About</a>
+                <a href="/education">Education</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="/login" class="btn btn-secondary">Login</a>
+                <a href="/signup" class="btn btn-primary">Sign Up</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="projects-page">
+        <!-- Hero Section -->
+        <section class="projects-hero">
+            <div class="hero-content">
+                <h1>Carbon Reduction Projects</h1>
+                <p>Browse and invest in verified carbon reduction projects worldwide</p>
+            </div>
+        </section>
+
+        <!-- Filters and Map View -->
+        <section class="projects-container">
+            <div class="filters-sidebar">
+                <div class="filter-section">
+                    <h3>Project Type</h3>
+                    <div class="filter-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="type" value="forest">
+                            <span class="checkmark"></span>
+                            Forest Conservation
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="type" value="renewable">
+                            <span class="checkmark"></span>
+                            Renewable Energy
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="type" value="industrial">
+                            <span class="checkmark"></span>
+                            Industrial
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="type" value="agriculture">
+                            <span class="checkmark"></span>
+                            Agriculture
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Certification Standard</h3>
+                    <div class="filter-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="standard" value="vcs">
+                            <span class="checkmark"></span>
+                            VCS (Verified Carbon Standard)
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="standard" value="gold">
+                            <span class="checkmark"></span>
+                            Gold Standard
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="standard" value="acr">
+                            <span class="checkmark"></span>
+                            ACR (American Carbon Registry)
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="standard" value="car">
+                            <span class="checkmark"></span>
+                            CAR (Climate Action Reserve)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <div class="price-range">
+                        <input type="range" id="priceRange" min="0" max="50" step="1" value="25">
+                        <div class="price-values">
+                            <span>$0</span>
+                            <span id="priceValue">$25</span>
+                            <span>$50</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Carbon Reduction</h3>
+                    <div class="carbon-range">
+                        <input type="range" id="carbonRange" min="0" max="100000" step="1000" value="50000">
+                        <div class="carbon-values">
+                            <span>0</span>
+                            <span id="carbonValue">50,000</span>
+                            <span>100,000</span>
+                        </div>
+                        <span class="unit">tCO2e</span>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>View Options</h3>
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th-large"></i> Grid
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i> List
+                        </button>
+                        <button class="view-btn" data-view="map">
+                            <i class="fas fa-map-marked-alt"></i> Map
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary apply-filters">Apply Filters</button>
+                <button class="btn btn-secondary reset-filters">Reset</button>
+            </div>
+
+            <div class="projects-content">
+                <div class="projects-header">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search projects...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="sort-options">
+                        <select id="sortProjects">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="carbon-high">Carbon Reduction: High to Low</option>
+                            <option value="carbon-low">Carbon Reduction: Low to High</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/images/projects/solar-farm.jpg" alt="Solar Farm Project">
+                        </div>
+                        <div class="project-content">
+                            <h3>Gujarat Solar Farm</h3>
+                            <div class="project-meta">
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Gujarat, India</span>
+                                <span class="type"><i class="fas fa-solar-panel"></i> Renewable Energy</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="label">Credits Available</span>
+                                    <span class="value">150,000</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Price</span>
+                                    <span class="value">₹1,100/credit</span>
+                                </div>
+                            </div>
+                            <a href="/project" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/images/projects/wind-farm.jpg" alt="Wind Farm Project">
+                        </div>
+                        <div class="project-content">
+                            <h3>Tamil Nadu Wind Farm</h3>
+                            <div class="project-meta">
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Tamil Nadu, India</span>
+                                <span class="type"><i class="fas fa-wind"></i> Renewable Energy</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="label">Credits Available</span>
+                                    <span class="value">200,000</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Price</span>
+                                    <span class="value">₹1,250/credit</span>
+                                </div>
+                            </div>
+                            <a href="/project" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/images/projects/forest.jpg" alt="Forest Conservation Project">
+                        </div>
+                        <div class="project-content">
+                            <h3>Western Ghats Conservation</h3>
+                            <div class="project-meta">
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Karnataka, India</span>
+                                <span class="type"><i class="fas fa-tree"></i> Forest Conservation</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="label">Credits Available</span>
+                                    <span class="value">300,000</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Price</span>
+                                    <span class="value">₹1,350/credit</span>
+                                </div>
+                            </div>
+                            <a href="/project" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects-list hidden" id="projectsList">
+                    <!-- List view will be loaded dynamically -->
+                </div>
+
+                <div class="projects-map hidden" id="projectsMap">
+                    <!-- Map will be initialized here -->
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination-btn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="pagination-numbers">
+                        <button class="pagination-number active">1</button>
+                        <button class="pagination-number">2</button>
+                        <button class="pagination-number">3</button>
+                        <span>...</span>
+                        <button class="pagination-number">10</button>
+                    </div>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>EcoTrade</h4>
+                <p>Making carbon markets accessible to everyone</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/education">Education</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoTrade. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open chatbot">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div id="chatbot-window" class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>EcoTrade Assistant</h3>
+                <button id="chatbot-close" class="chatbot-close" aria-label="Close chatbot">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="chatbot-message bot">
+                    <div class="message-content">
+                        Hello! I'm your EcoTrade assistant. How can I help you with carbon credits today?
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask about carbon credits, pricing, or trading...">
+                <button id="chatbot-send" class="chatbot-send" aria-label="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html> 

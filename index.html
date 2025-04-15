@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrade - Carbon Credit Trading Platform</title>
+    <meta name="description" content="Revolutionizing carbon markets with a transparent, secure, and efficient trading platform">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="assets/images/logo.svg" alt="EcoTrade Logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/trading">Trading</a>
+                <a href="/projects">Projects</a>
+                <a href="/about">About</a>
+                <a href="/education">Education</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="/login" class="btn btn-secondary">Login</a>
+                <a href="/signup" class="btn btn-primary">Sign Up</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Revolutionizing Carbon Markets</h1>
+            <p>Trade carbon credits with confidence on our secure, transparent, and efficient platform</p>
+            <div class="hero-cta">
+                <a href="/trading" class="btn btn-primary">Start Trading</a>
+                <a href="/projects/new" class="btn btn-secondary">List Your Project</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div id="tradingVolumeChart"></div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose EcoTrade</h2>
+            <p class="section-subtitle">Join the future of sustainable carbon markets with our innovative platform</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Blockchain Security</h3>
+                    <p>Every transaction is secured by advanced blockchain technology, ensuring transparency and immutability in carbon credit trading.</p>
+                    <ul class="benefit-features">
+                        <li><i class="fas fa-check"></i> Immutable transaction records</li>
+                        <li><i class="fas fa-check"></i> Smart contract automation</li>
+                        <li><i class="fas fa-check"></i> Real-time verification</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Make informed decisions with our comprehensive market data and AI-powered insights.</p>
+                    <ul class="benefit-features">
+                        <li><i class="fas fa-check"></i> Real-time price tracking</li>
+                        <li><i class="fas fa-check"></i> Market trend analysis</li>
+                        <li><i class="fas fa-check"></i> Predictive analytics</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Impact</h3>
+                    <p>Connect with verified carbon projects worldwide and contribute to meaningful environmental change.</p>
+                    <ul class="benefit-features">
+                        <li><i class="fas fa-check"></i> 50+ verified projects</li>
+                        <li><i class="fas fa-check"></i> Multiple project types</li>
+                        <li><i class="fas fa-check"></i> International standards</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Competitive Pricing</h3>
+                    <p>Access carbon credits at competitive market rates with minimal transaction fees.</p>
+                    <ul class="benefit-features">
+                        <li><i class="fas fa-check"></i> Low transaction fees</li>
+                        <li><i class="fas fa-check"></i> Market-based pricing</li>
+                        <li><i class="fas fa-check"></i> Bulk trading discounts</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Focus</h3>
+                    <p>Join a growing community of environmentally conscious traders and project developers.</p>
+                    <ul class="benefit-features">
+                        <li><i class="fas fa-check"></i> Expert support</li>
+                        <li><i class="fas fa-check"></i> Educational resources</li>
+                        <li><i class="fas fa-check"></i> Community events</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainability First</h3>
+                    <p>Our platform prioritizes environmental impact while maintaining financial viability.</p>
+                    <ul class="benefit-features">
+                        <li><i class="fas fa-check"></i> Impact tracking</li>
+                        <li><i class="fas fa-check"></i> Sustainability reports</li>
+                        <li><i class="fas fa-check"></i> Green initiatives</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="benefits-cta">
+                <a href="/signup" class="btn btn-primary">Start Trading Now</a>
+                <a href="/about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects">
+        <h2>Featured Carbon Projects</h2>
+        <div class="projects-grid" id="featuredProjects">
+            <!-- Projects will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>EcoTrade</h4>
+                <p>Making carbon markets accessible to everyone</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/education">Education</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoTrade. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open chatbot">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div id="chatbot-window" class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>EcoTrade Assistant</h3>
+                <button id="chatbot-close" class="chatbot-close" aria-label="Close chatbot">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="chatbot-message bot">
+                    <div class="message-content">
+                        Hello! I'm your EcoTrade assistant. How can I help you with carbon credits today?
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask about carbon credits, pricing, or trading...">
+                <button id="chatbot-send" class="chatbot-send" aria-label="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/image-handler.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html> 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Circle background -->
+    <circle cx="100" cy="100" r="95" fill="#4CAF50"/>
+    
+    <!-- Leaf elements -->
+    <path d="M100 40 C60 40, 40 70, 40 100 C40 140, 70 160, 100 160" 
+          fill="none" stroke="#ffffff" stroke-width="12"/>
+    <path d="M100 40 C140 40, 160 70, 160 100 C160 140, 130 160, 100 160" 
+          fill="none" stroke="#ffffff" stroke-width="12"/>
+    
+    <!-- Text -->
+    <text x="100" y="85" font-family="Arial, sans-serif" font-size="24" 
+          font-weight="bold" fill="#ffffff" text-anchor="middle">CARBON</text>
+    <text x="100" y="115" font-family="Arial, sans-serif" font-size="24" 
+          font-weight="bold" fill="#ffffff" text-anchor="middle">CREDIT</text>
+</svg> 
